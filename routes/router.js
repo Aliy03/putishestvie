@@ -6,13 +6,17 @@ const router = Router();
 const todosService = new TodosService();
 const MestService = new mestService();
 
-router.get('/', async (req, res, next) => {
+const categoriesRoute = require("../routes/categories");
 
+router.use('/categories', categoriesRoute);
+
+router.get('/', async (req, res, next) => {
   const listSrc = await todosService.getList();
 
   const list = listSrc.map((el) => {
     return {
       name: el.name,
+      value: el.value || "",
       id: el.id.toString(),
       completed: el.completed,
       createdAt: new Date(el.createdAt).toLocaleString('ru-RU'),
@@ -28,9 +32,6 @@ router.get('/', async (req, res, next) => {
     list,
   });
 });
-
-
-
 
 router.get('/new', async (req, res, next) => {
   const listSrc = await MestService.getList();

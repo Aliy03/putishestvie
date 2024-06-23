@@ -5,6 +5,9 @@ const kategorieSchema = new Schema({
     type: String,
     required: true
   },
+  value: {
+    type: String
+  },
   completed: {
     type: Boolean,
     default: false,

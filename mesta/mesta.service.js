@@ -1,23 +1,13 @@
 const { mestModel } = require("./mesta.model");
 
-
-
 class mestService {
-
-  mestModel;
-
   constructor() {
     this.mestModel = mestModel;
-    
   }
 
   getList() {
     return this.mestModel.find({}).sort({'createdAt': -1}).exec();
   }
-
-  
-
-  
 
   async toggleComplete(id) {
 
@@ -28,8 +18,6 @@ class mestService {
     }).exec();
 
   }
-
-  
 }
 
 

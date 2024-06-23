@@ -1,14 +1,8 @@
 const { kategorieModel } = require("./todos.model");
 
-
-
 class TodosService {
-
-  kategorieModel;
-
   constructor() {
     this.kategorieModel = kategorieModel;
-    
   }
 
   getList() {
@@ -24,7 +18,6 @@ class TodosService {
   }
 
   async toggleComplete(id) {
-
     const previous = await this.kategorieModel.findById(id);
     
     return this.todosModel.findByIdAndUpdate(id, {
@@ -32,11 +25,8 @@ class TodosService {
     }).exec();
 
   }
-
-  
 }
 
-
 module.exports = {
-  TodosService,
+  TodosService
 }

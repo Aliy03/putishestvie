@@ -8,8 +8,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const { engine } = require('express-handlebars');
 
-
-
 const app = express();
 
 app.use(express.static(
